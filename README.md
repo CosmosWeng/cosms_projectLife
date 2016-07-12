@@ -1,7 +1,6 @@
 ﻿# cosms_projectLife
 #0712 #blog進度
-http://cosmosblog.hol.es/public/
-文章功能弄得差不多了,
+文章功能弄得差不多了
 預計功能:
 1.要找個網頁檔案管理器
 2.同上,附加線上文字編輯器
