@@ -27,7 +27,7 @@
 
 	   		<article>
 	   			<div class="typography">
-				{{ $post->description }}
+				{!! $post->description !!}
 				</div>
 	   		</article>
 		</div>

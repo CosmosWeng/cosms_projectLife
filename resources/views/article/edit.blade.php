@@ -37,7 +37,7 @@
                         <br>
                         <input type="text" name="title" class="form-control" required="required" placeholder="请输入标题" value="{{$post->title}}">
                         <br>
-                        <textarea name="description" rows="10" class="form-control" required="required" placeholder="请输入内容">{{$post->description}}</textarea>
+                        <textarea id="content" name="description" rows="10" class="form-control" required="required" placeholder="请输入内容">{{$post->description}}</textarea>
                         <br>
                         <button class="btn btn-sm btn-info pull-right" style="margin:0px 0px 5px 5px;">修改</button>
 
@@ -53,8 +53,28 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="{{asset('/js/ckeditor/ckeditor.js')}}"></script>
+<script type="text/javascript" src="{{asset('/js/ckfinder/ckfinder_v1.js') }}"></script>
+
 <script type="text/javascript">
- 
+
+var url = '{{ route('home.index') }}' +'/js';
+//alert(url);
+//url.replace("admin/", "");
+
+var content = CKEDITOR.replace( 'content',
+                    {
+                        language: 'zh',
+                        height: 450,
+                        filebrowserBrowseUrl : url+'/ckfinder/ckfinder.html',
+                        filebrowserImageBrowseUrl : url+'/ckfinder/ckfinder.html?type=Images',
+                        filebrowserFlashBrowseUrl : url+'/ckfinder/ckfinder.html?type=Flash',
+                        filebrowserUploadUrl : url+'/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+                        filebrowserImageUploadUrl : url+'/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+                        filebrowserFlashUploadUrl : url+'/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
+                    });
+           //CKFinder.setupCKEditor( content );
+
 </script>
 
 
