@@ -25,6 +25,6 @@ class Authenticate
             }
         }
 
-        return $next($request);
+        return redirect()->guest('login');//$next($request);
     }
 }
