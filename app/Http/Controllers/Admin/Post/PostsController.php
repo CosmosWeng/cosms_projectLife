@@ -1,4 +1,5 @@
-<?php namespace App\Http\Controllers\Admin\Post;
+<?php 
+namespace App\Http\Controllers\Admin\Post;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -104,6 +105,8 @@ class PostsController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
+	
+
 	public function show($id)
 	{
 		$category_info = \App\Category::orderBy('created_at', 'desc')->get();
@@ -119,6 +122,25 @@ class PostsController extends Controller {
 	 	$data = compact('category_info','post');
 
 	    return view('article.show', $data);
+	}
+
+	public function lists()
+	{
+		$category_info = \App\Category::orderBy('created_at', 'desc')->get();
+		if (!isset($_GET['caid'])) {
+			$article_info = \App\Post::leftJoin('category','article.category','=','category.id')
+						->select('article.*','category.name as category')
+						->orderBy('created_at', 'desc')
+						->paginate(10);
+		}else{
+			$article_info = \App\Post::leftJoin('category','article.category','=','category.id')
+						->select('article.*','category.name as category')
+						->where('category','=',$_GET['caid'])
+						->orderBy('created_at', 'desc')
+						->paginate(10);
+		}
+		$data = compact('category_info','article_info');
+    	return view('article.list',$data);
 	}
 
 	/**

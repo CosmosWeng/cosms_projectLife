@@ -9,11 +9,26 @@
 
     <title>@yield('title') | Cosmos's Blog</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+      <!-- jQuery -->
+    <script src="{{ asset('js/jquery.js') }}"></script>
 
-    <!-- Custom CSS -->
-    <link href="{{ asset('css/clean-blog.min.css') }}" rel="stylesheet">
+    <!-- Bootstrap Core JavaScript -->
+    <!-- 最新編譯和最佳化的 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+    <!-- 選擇性佈景主題 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+    <!-- 最新編譯和最佳化的 JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+  
+    <!--CSS-->
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('javascript/font-awesome/css/font-awesome.min.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('stylesheet/stylesheet.css') }}" rel="stylesheet" type="text/css" media="screen"  />
+
+    <script src="{{ asset('javascript/common.js') }}" type="text/javascript"></script>
 
     <!-- Custom Fonts -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -27,22 +42,28 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
+
 <body>
+<div id="container">
+    <header id="header" class="navbar navbar-static-top">
+        <div class="navbar-header">
+        <a type="button" id="button-menu" class="pull-left"><i class="fa fa-indent fa-lg"></i></a>
+        </div>
+    </header>
 
-    @include('layouts.partials.navigation')
+    <nav id="column-left">
+        @include('layouts.partials.navigation')
+    </nav>
 
-    @yield('content')
+    <div id="content">
+       @yield('content')
+    </div>
 
-    @include('layouts.partials.footer')
-
-    <!-- jQuery -->
-    <script src="{{ asset('js/jquery.js') }}"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="{{ asset('js/clean-blog.js') }}"></script>
-
+    <footer id="footer">
+        @include('layouts.partials.footer')
+    </footer>
+</div>
+  
+    
 </body>
 </html>

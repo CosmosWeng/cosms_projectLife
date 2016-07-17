@@ -2,18 +2,27 @@
 
 @section('content')
 <!-- Page Header -->
-<!-- Set your background image for this header on the line below. -->
-<!-- Main Content -->
-<div class="container">
-	<a href="{{ route('article.list') }}" class="btn btn-primary">返回</a>
+<div id="content">
+
+  <div class="page-header">
+    <div class="container-fluid">
+      <ul class="breadcrumb">
+        <li><a href="#">test</a></li>
+        <li><a href="{{ route('article.list') }}">返回</a></li>
+      </ul>
+    </div>
+  </div>
+
+  
+  <div class="container-fluid">
     <div class="row">
     	<div class="nav">
-	       	<ul class=" navbar-left bs-docs-sidebar affix" role="tablist" >
-	       	<li><a href="{{ route('home.index') }}">All<span class="badge">{{DB::table('article')->count()}}</span></a></li>
+	       	<ul class="nav navbar-left" role="tablist" >
+		   		<li ><a href="{{ route('home.index') }}" >All<span class="badge pull-right">{{DB::table('article')->count()}}</span></a></li>
 				@foreach ($category_info as $info)
-					<li role="presentation" <?php if(isset($_GET['caid'])){if($info['id']==$_GET['caid']){echo "class='active'";}}?>> 
+					<li role="presentation" class="<?php if(isset($_GET['caid'])){if($info['id']==$_GET['caid']){echo "active";}}?>"> 
 						<a href="{{ route('home.index','caid='.$info['id']) }}">{{$info['name']}}
-						<span class="badge">{{DB::table('article')->where('category','=',$info['id'])->count()}}</span>
+						<span class="badge pull-right">{{DB::table('article')->where('category','=',$info['id'])->count()}}</span>
 						</a>
 					</li>
 				@endforeach
@@ -33,6 +42,7 @@
 		</div>
 
     </div>
+  </div>
 </div>
 
 @endsection

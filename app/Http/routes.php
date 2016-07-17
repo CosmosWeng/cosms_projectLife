@@ -17,7 +17,7 @@ Route::get('about', ['as' => 'about.index',	'uses' => 'Information\AboutControll
 
 Route::get('animate_newlession', ['as' => 'animateNewLession.index',	'uses' => 'Animate\AnimatelessionController@index']);
 
-Route::get('article', ['as' => 'article.list',		'uses' => 'Common\HomeController@index']);
+Route::get('article', ['as' => 'article.list',		'uses' => 'Admin\Post\PostsController@lists']);
 Route::get('article/{id}', ['as' => 'article.detail',	'uses' => 'Admin\Post\PostsController@show']);
 
 
