@@ -27,8 +27,8 @@ class HomeController extends Controller {
 		$manager = new ImageManager();
 		$images_filename =array();
 		$images_filename_array =glob(realpath(base_path('public\img')).'\images\*.*');
-		//var_dump(config('view.dir_path'));
-		//var_dump($images_filename);
+		var_dump(realpath(base_path('public\img')).'\images\*.*');
+		var_dump($images_filename_array);
 
 		foreach ($images_filename_array as $key => $value) {
 			//var_dump($value);
@@ -38,14 +38,7 @@ class HomeController extends Controller {
 			//var_dump($new_img);
 			$images_filename[$key] = $filename;
 		}
-		//var_dump($images_filename);
-		/*
-		foreach ($images_filename as $key => $value) {
-			# code...
-			//var_dump($value);
-			var_dump($value->response('jpg'));
-		}
-*/
+		
 		$data = compact('images_filename');
 
 
