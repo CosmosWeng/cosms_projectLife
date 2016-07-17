@@ -1,27 +1,46 @@
-#sidebar {
-  /* for the animation */
-  transition: margin 0.3s ease;
-}
-
-.collapsed {
-  /* hide it for small displays*/
+/*首頁圖片輪播*/
+#flexiselDemo1, #flexiselDemo2, #flexiselDemo3 {
   display: none;
 }
 
-@media (min-width: 992px) {
-  .collapsed {
-    display: block;
-    /* same width as sidebar */
-    margin-left: -25%;
-  }
+.nbs-flexisel-container {
+  position: relative;
+  max-width: 100%;
 }
-
-#row-main {
-  /* necessary to hide collapsed sidebar */
-  overflow-x: hidden;
+.nbs-flexisel-ul {
+  position: relative;
+  width: 9999px;
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+  text-align: center;
 }
-
-#content {
-  /* for the animation */
-  transition: width 0.3s ease;
+.nbs-flexisel-inner {
+  overflow: hidden;
+}
+.nbs-flexisel-item {
+  float: left;
+  margin: 0px;
+  padding: 0px;
+  cursor: pointer;
+  position: relative;
+  line-height: 0px;
+}
+.nbs-flexisel-item > img {
+  
+  cursor: pointer;
+  position: relative;
+    width: 70%;
+  margin: 0 5%;
+}
+/*** Navigation ***/
+.nbs-flexisel-nav-left {
+  display:none;
+}
+.nbs-flexisel-nav-right {
+  display:none;
+} 
+.more-reviews{
+  background:#444444
+  padding:3em 0;
 }

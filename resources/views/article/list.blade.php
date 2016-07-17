@@ -1,5 +1,5 @@
 @extends('layouts.master')
-
+@section('title', '文章列表')
 @section('content')
 <!-- Page Header -->
 <div id="content">
@@ -7,7 +7,8 @@
   <div class="page-header">
     <div class="container-fluid">
       <ul class="breadcrumb">
-        <li><a href="#">test</a></li>
+      	<li><a href="{{ route('home.index') }}">首頁</a></li>
+        <li><a href="{{ route('article.list') }}">文章列表</a></li>
 
       </ul>
     </div>
@@ -16,23 +17,25 @@
 
   <div class="container-fluid">
     <div class="row">
-		<div class="nav">
+		<div class="nav table-striped pull-left col-md-2">
 			<ul class="nav navbar-left" role="tablist" >
-				<li ><a href="{{ route('home.index') }}" >All<span class="badge pull-right">{{DB::table('article')->count()}}</span></a></li>
+				<li ><a href="{{ route('article.list') }}" class="btn">All<span class="badge pull-right">{{DB::table('article')->count()}}</span></a></li>
 					@foreach ($category_info as $info)
 					<li role="presentation" class="<?php if(isset($_GET['caid'])){if($info['id']==$_GET['caid']){echo "active";}}?>"> 
-						<a href="{{ route('home.index','caid='.$info['id']) }}">{{$info['name']}}
+						<a href="{{ route('article.list','caid='.$info['id']) }}">{{$info['name']}}
 						<span class="badge pull-right">{{DB::table('article')->where('category','=',$info['id'])->count()}}</span>
 						</a>
 					</li>
 					@endforeach
 			</ul>
+	
 		</div>
-		<div class="col-lg-3 col-md-3 col-sm-6 col-md-offset-2">
+		<div class="col-md-10 pull-right">
 			<div>
 			<section class="widget news news-4 ">						
-					<div class="grid">
-					<table class="table">
+					
+
+					<table class="table table-striped">
 						<thead>
 							<td>標題</td>
 							<td>時間</td>
@@ -47,7 +50,7 @@
 		                @endforeach
 		                </tbody>
 		            </table>
-					</div>
+				
 					
 			</section>
 

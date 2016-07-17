@@ -12,6 +12,8 @@ return [
     | the usual Laravel view path has already been registered for you.
     |
     */
+    'dir_path' => realpath(base_path('public')),
+    'dir_path_img' => realpath(base_path('public/img')),
 
     'paths' => [
         realpath(base_path('resources/views')),

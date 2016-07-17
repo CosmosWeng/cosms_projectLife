@@ -10,8 +10,8 @@
     <title>@yield('title') | Cosmos's Blog</title>
 
       <!-- jQuery -->
-    <script src="{{ asset('js/jquery.js') }}"></script>
-
+  
+    <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
     <!-- Bootstrap Core JavaScript -->
     <!-- 最新編譯和最佳化的 CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
@@ -29,6 +29,7 @@
     <link href="{{ asset('stylesheet/stylesheet.css') }}" rel="stylesheet" type="text/css" media="screen"  />
 
     <script src="{{ asset('javascript/common.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/jquery.flexisel.js') }}" type="text/javascript"></script>
 
     <!-- Custom Fonts -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">

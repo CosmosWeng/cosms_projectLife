@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 
+
+// 導入 Intervention Image Manager Class
+use Intervention\Image\ImageManager;
+
 use App\Category;
 
 use App\Post;
@@ -20,28 +24,29 @@ class HomeController extends Controller {
 
 	public function index()
 	{	
-		$category_info = \App\Category::orderBy('created_at', 'desc')->get();
+		$manager = new ImageManager();
+		$images_filename =array();
+		$images_filename_array =glob(realpath(base_path('public\img')).'\images\*.*');
+		//var_dump(config('view.dir_path'));
+		//var_dump($images_filename);
 
-
-		if (!isset($_GET['caid'])) {
-			$article_info = \App\Post::leftJoin('category','article.category','=','category.id')
-						->select('article.*','category.name as category')
-						->orderBy('created_at', 'desc')
-						->paginate(10);
-		}else{
-		
-			$article_info = \App\Post::leftJoin('category','article.category','=','category.id')
-						->select('article.*','category.name as category')
-						->where('category','=',$_GET['caid'])
-						->orderBy('created_at', 'desc')
-						->paginate(10);
+		foreach ($images_filename_array as $key => $value) {
+			//var_dump($value);
+			$filename = basename($value);
+			$new_img = $manager->make($value)->resize(287, 412);
+			$new_img->save();
+			//var_dump($new_img);
+			$images_filename[$key] = $filename;
 		}
-
-
-						 
-
-
-		$data = compact('category_info','article_info');
+		//var_dump($images_filename);
+		/*
+		foreach ($images_filename as $key => $value) {
+			# code...
+			//var_dump($value);
+			var_dump($value->response('jpg'));
+		}
+*/
+		$data = compact('images_filename');
 
 
     	return view('common.index',$data);
