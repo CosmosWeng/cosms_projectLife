@@ -54,7 +54,13 @@
 
   <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-3 col-md-3 col-sm-6"> 網站建置中...</div>
+    <h1 class="text-center">網站建置中...</h1>
+      <div class="col-lg-3 col-md-3 col-sm-6"> 
+          <h4>更新日誌</h4>
+          <p>{!!$txt_log!!}</p> 
+
+      </div>
+      
     </div>
   </div>
 </div>

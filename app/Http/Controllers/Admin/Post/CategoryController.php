@@ -88,7 +88,7 @@ class CategoryController extends Controller {
 
 	 	$data = compact('post');
 
-	    return view('cadmin.ategory.show', $data);
+	    return view('admin.category.show', $data);
 	}
 
 	/**

@@ -51,6 +51,9 @@ Route::group(['middleware'=>'auth','namespace'=>'Admin','prefix' => 'admin'],fun
 	Route::patch('article_category/{id}'   , ['as' => 'category.update',	'uses' => 'Post\CategoryController@update']);
 	Route::delete('article_category/{id}',	['as' => 'category.destroy',	'uses' => 'Post\CategoryController@destroy']);
 
+	//Message
+	Route::get('message', 			['as' => 'message.index',	'uses' => 'Message\MessageController@getlist']);
+
 });
 
 

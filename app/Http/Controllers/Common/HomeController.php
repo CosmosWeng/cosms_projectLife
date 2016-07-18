@@ -24,11 +24,10 @@ class HomeController extends Controller {
 
 	public function index()
 	{	
+		//圖片輪播
 		$manager = new ImageManager();
 		$images_filename =array();
-		$images_filename_array =glob(realpath(base_path('public\img')).'\images\*.*');
-		var_dump(realpath(base_path('public\img')).'\images\*.*');
-		var_dump($images_filename_array);
+		$images_filename_array =glob('img\images\*.*');//需要絕對座標
 
 		foreach ($images_filename_array as $key => $value) {
 			//var_dump($value);
@@ -38,10 +37,20 @@ class HomeController extends Controller {
 			//var_dump($new_img);
 			$images_filename[$key] = $filename;
 		}
+
 		
-		$data = compact('images_filename');
+		//讀取更新日誌
+		$file = fopen("update_log.txt","r");
+		$txt_log ='';
+		while (! feof ($file))
+		  {
+		  $txt_log .=  fgets($file). "<br>";
+		  }
+		fclose($file);
 
 
+
+		$data = compact('images_filename','txt_log');
     	return view('common.index',$data);
 	}
 

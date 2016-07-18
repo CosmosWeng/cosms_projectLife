@@ -44,8 +44,38 @@
 				{!! $post->description !!}
 				</div>
 	   		</article>
-		</div>
 
+
+	   		<div id="review">
+	   			<h2>訪客留言</h2>
+	   			<p>test</p>
+	   		</div>
+                
+                
+	   		<div class="col-md-8" id="tab-review">
+              <form class="form-horizontal" id="form-review">
+                <div class="form-group required">
+                  <div class="col-sm-12">
+                    <label class="control-label" for="input-name">Name</label>
+                    <input type="text" name="name" value="" id="input-name" class="form-control" />
+                  </div>
+                </div>
+                <div class="form-group required">
+                  <div class="col-sm-12">
+                    <label class="control-label" for="input-review">tes1</label>
+                    <textarea name="text" rows="5" id="input-review" class="form-control"></textarea>
+                    <div class="help-block">test2</div>
+                  </div>
+                </div>
+                <div class="buttons clearfix">
+                  <div class="pull-right">
+                    <button type="button" id="button-review" data-loading-text="" class="btn btn-primary">送出</button>
+                  </div>
+                </div>
+              
+              </form>
+            </div>
+		</div>
     </div>
   </div>
 </div>

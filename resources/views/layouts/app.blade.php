@@ -57,6 +57,7 @@
                                 <li><a href="{{ route('category.index') }}"><i class="fa fa-btn"></i>類別編輯</a></li>
                             </ul>
                     </li>
+                    <li><a href="{{ route('message.index') }}">留言管理</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
