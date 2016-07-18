@@ -13,7 +13,7 @@ use Intervention\Image\ImageManager;
 
 use App\Category;
 
-use App\Post;
+use App\Post as Post;
 
 class HomeController extends Controller {
 
@@ -24,6 +24,15 @@ class HomeController extends Controller {
 
 	public function index()
 	{	
+		//test case
+		/*
+		$posts =  Post::select('id')->get();
+		foreach ($posts as $key => $value) {
+			# code...
+			var_dump($key .":". $value);
+		}
+		*/
+
 		//圖片輪播
 		$manager = new ImageManager();
 		$images_filename =array();

@@ -20,7 +20,7 @@ Route::get('animate_newlession', ['as' => 'animateNewLession.index',	'uses' => '
 Route::get('article', ['as' => 'article.list',		'uses' => 'Admin\Post\PostsController@lists']);
 Route::get('article/{id}', ['as' => 'article.detail',	'uses' => 'Admin\Post\PostsController@show']);
 
-
+Route::post('message',			['as' => 'message.store',	'uses' => 'Admin\Message\MessageController@store']);
 
 
 
@@ -53,6 +53,10 @@ Route::group(['middleware'=>'auth','namespace'=>'Admin','prefix' => 'admin'],fun
 
 	//Message
 	Route::get('message', 			['as' => 'message.index',	'uses' => 'Message\MessageController@getlist']);
+	Route::get('message/{id}/edit', ['as' => 'message.edit',	'uses' => 'Message\MessageController@getform']);
+//	Route::post('message',			['as' => 'message.store',	'uses' => 'Message\MessageControlle@store']);
+	Route::patch('message/{id}'   , ['as' => 'message.update',	'uses' => 'Message\MessageController@update']);
+	Route::delete('message/{id}',	['as' => 'message.destroy',	'uses' => 'Message\MessageController@destroy']);
 
 });
 

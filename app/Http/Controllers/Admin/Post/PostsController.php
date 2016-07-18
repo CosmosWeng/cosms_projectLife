@@ -5,8 +5,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\Post;
+use App\Post ;
 use App\Category;
+use App\Message as Message;
 
 class PostsController extends Controller {
 
@@ -17,10 +18,6 @@ class PostsController extends Controller {
 	 */
 	public function index($category=null)
 	{
-		/*
-		$posts = \App\Post::orderBy('created_at', 'desc')
-						  ->paginate(10);
-		*/
 		$post_type = '文章總覽';
 
 		if (!isset($_GET['caid'])) {
@@ -35,15 +32,11 @@ class PostsController extends Controller {
 						->orderBy('created_at', 'desc')
 						->paginate(10);
 		}
-		
-
-		//var_dump($test[0]);
 
 		$categries = \App\Category::get();
 
 
 		$data = compact('posts', 'post_type','categries');
-
     	return view('article.index', $data);
 	}
 
@@ -118,8 +111,9 @@ class PostsController extends Controller {
 		}
 
 		//var_dump($post);
+		$replies = $this->reply($id);
 
-	 	$data = compact('category_info','post');
+	 	$data = compact('category_info','post','replies');
 
 	    return view('article.show', $data);
 	}
@@ -223,6 +217,15 @@ class PostsController extends Controller {
 	 	$data = compact('post');
 
 	    return view('article.show', $data);
+	}
+
+	public function reply($id)
+	{
+		$replies = Message::where('caid','=',$id)
+			->orderBy('created_at', 'desc')
+			->get();
+
+		return $replies;
 	}
 
 	public function comment($id, Request $request)

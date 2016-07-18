@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddCategoryInArticle extends Migration
+class AddReplyInmessagetable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,9 @@ class AddCategoryInArticle extends Migration
      */
     public function up()
     {
-        Schema::table('article', function (Blueprint $table) {
+        Schema::table('message', function (Blueprint $table) {
             //
-            $table->string('category',255);
+            $table->text('reply');
         });
     }
 
@@ -25,9 +25,9 @@ class AddCategoryInArticle extends Migration
      */
     public function down()
     {
-        Schema::table('article', function (Blueprint $table) {
+        Schema::table('message', function (Blueprint $table) {
             //
-            $table->dropColumn('category');
+            $table->dropColumn('reply');
         });
     }
 }

@@ -44,32 +44,65 @@
 				{!! $post->description !!}
 				</div>
 	   		</article>
-
+            
+            <br>
+            <br>
 
 	   		<div id="review">
-	   			<h2>訪客留言</h2>
-	   			<p>test</p>
+	   			<h2>留言版</h2>
+
+          @foreach ($replies as $reply)
+            @if($reply['status'])
+            <table>
+              <tr>{{$reply['created_at']}}</tr>
+              <tr>
+                <td>{{$reply['name']}} :</td>
+                <td>{{$reply['description']}}</td>
+              </tr>
+              @if(!empty($reply['reply']))
+              <tr>
+                <td>回覆:</td>
+                <td> {{$reply['reply']}}</td>
+              </tr>
+              @endif
+            </table>
+            <br>
+            <br>
+            @endif
+          @endforeach
+     
+	   			
 	   		</div>
                 
                 
 	   		<div class="col-md-8" id="tab-review">
-              <form class="form-horizontal" id="form-review">
+         @include('layouts.partials.notification')
+
+         @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <strong>编辑失败</strong> 输入不符合要求<br><br>
+                            {!! implode('<br>', $errors->all()) !!}
+                        </div>
+        @endif
+
+               <form action="{{route('message.store')}}" method="POST" class="form-horizontal" id="form-review">
+                {{ csrf_field()}}
+                <input type="hidden" name="caid" value="{{$post->id}}">
                 <div class="form-group required">
                   <div class="col-sm-12">
-                    <label class="control-label" for="input-name">Name</label>
+                    <label class="control-label" for="input-name">姓名</label>
                     <input type="text" name="name" value="" id="input-name" class="form-control" />
                   </div>
                 </div>
                 <div class="form-group required">
                   <div class="col-sm-12">
-                    <label class="control-label" for="input-review">tes1</label>
-                    <textarea name="text" rows="5" id="input-review" class="form-control"></textarea>
-                    <div class="help-block">test2</div>
+                    <label class="control-label" for="input-review">內容</label>
+                    <textarea name="description" rows="5" id="input-review" class="form-control"></textarea>
                   </div>
                 </div>
                 <div class="buttons clearfix">
                   <div class="pull-right">
-                    <button type="button" id="button-review" data-loading-text="" class="btn btn-primary">送出</button>
+                        <button class="btn btn-sm btn-info pull-right" style="margin:0px 0px 5px 5px;">提交</button>
                   </div>
                 </div>
               
