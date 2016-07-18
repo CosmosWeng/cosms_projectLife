@@ -20,16 +20,20 @@
 
                     <table>
                         <tr>
-                            <td>姓名:</td>
+                            <td>姓名 :</td>
                             <td>{{$post->name}}</td>
                         </tr>
                         <tr>
-                            <td>內容:</td>
-                            <td>{{$post->description}}</td>
+                            <td>時間 :</td>
+                            <td>{{$post->created_at}}</td>
+                        </tr>
+                         <tr>
+                            <td>信箱 :</td>
+                            <td>{{$post->email}}</td>
                         </tr>
                         <tr>
-                            <td>時間:</td>
-                            <td>{{$post->created_at}}</td>
+                            <td>內容 :</td>
+                            <td>{{$post->description}}</td>
                         </tr>
                     </table>
 					<br>
@@ -38,7 +42,7 @@
                         {{ csrf_field() }}
                         <table>
                         <tr>
-                        	<td>狀態:</td>
+                        	<td>狀態 :</td>
                         	<td>
                         		<select name="status">
 		                        	@if($post['status'])
@@ -53,7 +57,7 @@
                         </tr>
 
                         <tr>
-                        	<td>回覆:</td>
+                        	<td>回覆 :</td>
                         	<td>
                         		<textarea name="reply">{{$post->reply}}</textarea>
                         	</td>

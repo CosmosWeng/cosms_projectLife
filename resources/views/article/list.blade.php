@@ -2,19 +2,31 @@
 @section('title', '文章列表')
 @section('content')
 <!-- Page Header -->
+
+<header>
 <div id="content">
-
-  <div class="page-header">
-    <div class="container-fluid">
-      <ul class="breadcrumb">
-      	<li><a href="{{ route('home.index') }}">首頁</a></li>
-        <li><a href="{{ route('article.list') }}">文章列表</a></li>
-
-      </ul>
+    <div class="page-header">
+        <div class="container-fluid">
+          <ul class="breadcrumb">
+           	<li><a href="{{ route('home.index') }}">首頁</a></li>
+        	<li><a href="{{ route('article.list') }}">文章列表</a></li>
+          </ul>
+        </div>
     </div>
-  </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="page-heading">
+                    <h1>文章列表</h1>
+                    <hr class="small">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</header>
 
-
+<div id="content">
   <div class="container-fluid">
     <div class="row">
 		<div class="nav table-striped pull-left col-md-2">
@@ -50,10 +62,7 @@
 		                @endforeach
 		                </tbody>
 		            </table>
-				
-					
 			</section>
-
 		<div class="text-center">
 		        {!! $article_info->render() !!}
 		    </div>

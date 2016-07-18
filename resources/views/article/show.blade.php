@@ -2,20 +2,33 @@
 @section('title',$post->title)
 @section('content')
 <!-- Page Header -->
+
+<header>
 <div id="content">
-
-  <div class="page-header">
-    <div class="container-fluid">
-      <ul class="breadcrumb">
-      	<li><a href="{{ route('home.index') }}">首頁</a></li>
-        <li><a href="{{ route('article.list') }}">文章列表</a></li>
-        <li><a href="{{ route('article.detail', $post->id) }}">{{ $post->title }}</a></li>
-        
-      </ul>
+    <div class="page-header">
+        <div class="container-fluid">
+          <ul class="breadcrumb">
+            <li><a href="{{ route('home.index') }}">首頁</a></li>
+          <li><a href="{{ route('article.list') }}">文章列表</a></li>
+          <li><a href="{{ route('article.detail', $post->id) }}">{{ $post->title }}</a></li>
+          </ul>
+        </div>
     </div>
-  </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="page-heading">
+                    <h1>{{ $post->title }}</h1>
+                    <hr class="small">
+                    <h2>{{ $post->updated_at }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</header>
 
-  
+<div id="content">
   <div class="container-fluid">
   
     <div class="row">
@@ -33,18 +46,13 @@
 		</div>
 		<a type="bottun" class="btn btn-primary" href="{{ route('article.list') }}">返回</a>
 		<div class="col-md-10 pull-right">
-	   		<div>
-
-	   			<h1>{{ $post->title }}</h1>
-	   			<h2>{{ $post->updated_at }}</h2>
-	   		</div>
-
+      <br>
+      <br>
 	   		<article>
 	   			<div class="typography">
 				{!! $post->description !!}
-				</div>
+				  </div>
 	   		</article>
-            
             <br>
             <br>
 
