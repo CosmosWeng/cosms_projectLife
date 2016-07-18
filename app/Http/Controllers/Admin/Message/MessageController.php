@@ -55,6 +55,7 @@ class MessageController extends Controller
             'caid' => 'required', // 必填、在 articles 表中唯一、最大長度 255
             'description' => 'required', // 必填
             'name' => 'required', // 必填
+            'g-recaptcha-response' => 'required|captcha',
         ]);
         
         $post = new Message();

@@ -78,13 +78,6 @@
 	   		<div class="col-md-8" id="tab-review">
          @include('layouts.partials.notification')
 
-         @if (count($errors) > 0)
-                        <div class="alert alert-danger">
-                            <strong>编辑失败</strong> 输入不符合要求<br><br>
-                            {!! implode('<br>', $errors->all()) !!}
-                        </div>
-        @endif
-
                <form action="{{route('message.store')}}" method="POST" class="form-horizontal" id="form-review">
                 {{ csrf_field()}}
                 <input type="hidden" name="caid" value="{{$post->id}}">
@@ -100,8 +93,11 @@
                     <textarea name="description" rows="5" id="input-review" class="form-control"></textarea>
                   </div>
                 </div>
+
+
                 <div class="buttons clearfix">
                   <div class="pull-right">
+                  {!! app('captcha')->display(); !!}
                         <button class="btn btn-sm btn-info pull-right" style="margin:0px 0px 5px 5px;">提交</button>
                   </div>
                 </div>

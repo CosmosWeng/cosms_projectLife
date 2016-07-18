@@ -88,8 +88,6 @@ Route::post('contact', ['as' => 'contacts.store', 'uses' => 'ContactsController@
 */
 
 
-
-
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
