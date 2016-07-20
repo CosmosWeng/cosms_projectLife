@@ -16,9 +16,13 @@
           <li><a href="{{ route('admin.index') }}">登入</a></li>
       </ul>
   </li>
-  <li id="about"><a href="{{ route('about.index') }}"><i class="glyphicon glyphicon-asterisk"></i> <span>關於</span></a>
-  <li id="article"><a href="{{ route('article.list') }}"><i class="glyphicon glyphicon-list-alt"></i> <span>文章列表</span></a>
-  <li id="contact"><a href="{{ route('contacts.create') }}"><i class="glyphicon glyphicon-envelope"></i> <span>聯絡方式</span></a>
-  <li id="other"><a href="{{ route('animateNewLession.index') }}"><i class="glyphicon glyphicon-star-empty"></i> <span>其他</span></a>
+  <li id="about"><a href="{{ route('about.index') }}"><i class="glyphicon glyphicon-asterisk"></i> <span>關於</span></a></li>
+  <li id="article"><a href="{{ route('article.list') }}"><i class="glyphicon glyphicon-list-alt"></i> <span>文章列表</span></a></li>
+  <li id="contact"><a href="{{ route('contacts.create') }}"><i class="glyphicon glyphicon-envelope"></i> <span>聯絡方式</span></a></li>
+  <li id="other"><a><i class="glyphicon glyphicon-star-empty"></i> <span>其他</span></a>
+    <ul>
+          <li><a href="{{ route('animateNewLession.index') }}">2016 夏アニメ 選課表</a></li>
+    </ul>
+  </li>
 
 </ul>
