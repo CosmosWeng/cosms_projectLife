@@ -24,7 +24,6 @@ class HomeController extends Controller {
 
 	public function index()
 	{	
-		
 		//圖片輪播
 		$manager = new ImageManager();
 		$images_filename =array();
