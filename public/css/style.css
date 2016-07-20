@@ -26,7 +26,7 @@
   position: relative;
   line-height: 0px;
 }
-.nbs-flexisel-item > img {
+.nbs-flexisel-item > a > img {
   
   cursor: pointer;
   position: relative;

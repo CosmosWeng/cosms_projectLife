@@ -24,34 +24,37 @@ class HomeController extends Controller {
 
 	public function index()
 	{	
-		//test case
-		/*
-		$posts =  Post::select('id')->get();
-		foreach ($posts as $key => $value) {
-			# code...
-			var_dump($key .":". $value);
-		}
-		*/
 		
 		//圖片輪播
 		$manager = new ImageManager();
 		$images_filename =array();
+		$images_filename_array =glob(DIR_IMAGE.'images/*.*');//需要絕對座標
 		
-		if (!strpos($_SERVER['HTTP_HOST'],"localhost")) {
-			$images_filename_array =glob(realpath(base_path('public')).'/img/images/*.*');
-		}else{
-			$images_filename_array =glob('img\images\*.*');//需要絕對座標
-		}
 		
 
 		foreach ($images_filename_array as $key => $value) {
-			//var_dump($value);
 			$filename = basename($value);
-			$new_img = $manager->make($value)->resize(287, 412);
-			$new_img->save();
-			//var_dump($new_img);
-			$images_filename[$key] = $filename;
+			//$new_img = $manager->make($value)->resize(287, 412);
+			//$new_img->save();
+			
+			if (is_numeric(substr($filename,0,strpos($filename,"_")))) {
+				$pixv = "http://www.pixiv.net/member_illust.php?mode=medium&illust_id=".substr($filename,0,strpos($filename,"_"));
+			}else{
+				$pixv =null;
+			}
+
+			$img = new \App\Model\Tool\Image;
+			//$images_filename[$key] = $img->resize('images/'.$filename,287,412);
+
+			$images_filename[$key] =array(
+					"filename"	=> $filename,
+					"url"		=> $img->resize('images/'.$filename,287,412),
+					"pixv"		=> $pixv
+				);
+
 		}
+		//var_dump($images_filename);
+		//test case
 
 		
 		//讀取更新日誌

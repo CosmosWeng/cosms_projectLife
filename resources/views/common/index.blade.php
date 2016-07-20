@@ -9,7 +9,7 @@
 <div class="more-reviews" style="background:#FFBB66;padding:3em 0;">
     <ul id="flexiselDemo2">
       @foreach ($images_filename as $image_filename)
-        <li><img src="img/images/{{$image_filename}}" alt=""/></li>
+        <li><a href="{{$image_filename["pixv"]}}" target="pixv"><img src="{{$image_filename["url"]}}" alt="{{$image_filename["filename"]}}"/></a></li>
       @endforeach
     </ul>
 </div>
