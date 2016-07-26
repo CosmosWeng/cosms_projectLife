@@ -18,6 +18,7 @@ Route::get('contact' ,	['as' => 'contacts.create', 	'uses' => 'Information\Conta
 Route::post('contact',	['as' => 'contacts.store', 		'uses' => 'Information\ContactsController@store']);
 
 Route::get('animate_newlession', ['as' => 'animateNewLession.index',	'uses' => 'Animate\AnimatelessionController@index']);
+Route::get('animate/analysis', ['as' => 'animateNewLession.analysis',	'uses' => 'Animate\AnimatelessionController@analysis']);
 
 Route::get('article',	['as' => 'article.list',		'uses' => 'Admin\Post\PostsController@lists']);
 Route::get('article/{id}', ['as' => 'article.detail',	'uses' => 'Admin\Post\PostsController@show']);

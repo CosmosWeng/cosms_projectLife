@@ -22,6 +22,7 @@
   <li id="other"><a><i class="glyphicon glyphicon-star-empty"></i> <span>其他</span></a>
     <ul>
           <li><a href="{{ route('animateNewLession.index') }}">2016 夏アニメ 選課表</a></li>
+          <li><a href="{{ route('animateNewLession.analysis') }}">選課表功能</a></li>
     </ul>
   </li>
 
