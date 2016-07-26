@@ -25,7 +25,7 @@ class AnimatelessionController extends Controller
       $html = file_get_html('http://www.animen.com.tw/NewsArea/NewsItemDetail?NewsId=15697&categoryId=600&tagName=%E6%96%B0%E7%95%AA%E5%88%97%E8%A1%A8&realCategoryId=1&subCategoryId=5');
       
 
-/*
+
       if ($request->input('html')){
         $url = $request->input('html');
        // var_dump($url);
@@ -33,7 +33,7 @@ class AnimatelessionController extends Controller
           $html = file_get_html($url);
         }
       }
-*/
+
     	/**取得年份月份**/
     	$es = $html->find('.news-title',0);
    		$date = preg_replace("#[^A-z0-9]#","",trim($es->plaintext));
