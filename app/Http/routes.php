@@ -62,6 +62,12 @@ Route::group(['middleware'=>'auth','namespace'=>'Admin','prefix' => 'admin'],fun
 	Route::patch('message/{id}'   , ['as' => 'message.update',	'uses' => 'Message\MessageController@update']);
 	Route::delete('message/{id}',	['as' => 'message.destroy',	'uses' => 'Message\MessageController@destroy']);
 
+
+	//ACG
+	Route::get('animate_list', 			['as' => 'animate.index',	'uses' => 'Animate\ManageController@index']);
+	Route::post('animate_list', 			['as' => 'animate.post',	'uses' => 'Animate\ManageController@index']);
+
+
 });
 
 
