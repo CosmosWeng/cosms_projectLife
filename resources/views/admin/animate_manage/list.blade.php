@@ -46,19 +46,17 @@
 	            				<td><a type="button" class="btn btn-default">{{ $ca['key_year'] }}</a></td>
 	            				<td>
 	            					<div class="btn-group" data-toggle="buttons">
-									  <label class="btn btn-default <?php if(!empty($list_array)){ echo (in_array('04', $list_array[$ca['key_year']]))?'active':'';} ?>">
-									    <input type="checkbox" autocomplete="off" name="list[{{ $ca['key_year'] }}][]" value="04" <?php if(!empty($list_array)){ echo (in_array('04', $list_array[$ca['key_year']]))?'checked="checked"':'';} ?>>春(4月)
+									  <label class="btn btn-default <?php if(isset($list_array[$ca['key_year']])){ echo (in_array('04', $list_array[$ca['key_year']]))?'active':'';} ?>">
+									    <input type="checkbox" autocomplete="off" name="list[{{ $ca['key_year'] }}][]" value="04" <?php if(isset($list_array[$ca['key_year']])){ echo (in_array('04', $list_array[$ca['key_year']]))?'checked="checked"':'';} ?>>春(4月)
 									  </label>
-									  <label class="btn btn-default <?php if(!empty($list_array)){ echo (in_array('07', $list_array[$ca['key_year']]))?'active':'';} ?>">
-									    <input type="checkbox" autocomplete="off" name="list[{{ $ca['key_year'] }}][]" value="07" <?php if(!empty($list_array)){ echo (in_array('07', $list_array[$ca['key_year']]))?'checked="checked"':'';} ?>>夏(7月)
+									  <label class="btn btn-default <?php if(isset($list_array[$ca['key_year']])){ echo (in_array('07', $list_array[$ca['key_year']]))?'active':'';} ?>">
+									    <input type="checkbox" autocomplete="off" name="list[{{ $ca['key_year'] }}][]" value="07" <?php if(isset($list_array[$ca['key_year']])){ echo (in_array('07', $list_array[$ca['key_year']]))?'checked="checked"':'';} ?>>夏(7月)
 									  </label>
-
-									 <label class="btn btn-default <?php if(!empty($list_array)){ echo (in_array('10', $list_array[$ca['key_year']]))?'active':'';} ?>">
-									    <input type="checkbox" autocomplete="off" name="list[{{ $ca['key_year'] }}][]" value="10" <?php if(!empty($list_array)){ echo (in_array('10', $list_array[$ca['key_year']]))?'checked="checked"':'';} ?>>秋(10月)
+									  <label class="btn btn-default <?php if(isset($list_array[$ca['key_year']])){ echo (in_array('10', $list_array[$ca['key_year']]))?'active':'';} ?>">
+									    <input type="checkbox" autocomplete="off" name="list[{{ $ca['key_year'] }}][]" value="10" <?php if(isset($list_array[$ca['key_year']])){ echo (in_array('10', $list_array[$ca['key_year']]))?'checked="checked"':'';} ?>>秋(10月)
 									  </label>
-
-									  <label class="btn btn-default <?php if(!empty($list_array)){ echo (in_array('01', $list_array[$ca['key_year']]))?'active':'';} ?>">
-									    <input type="checkbox" autocomplete="off" name="list[{{ $ca['key_year'] }}][]" value="01" <?php if(!empty($list_array)){ echo (in_array('01', $list_array[$ca['key_year']]))?'checked="checked"':'';} ?>>冬(1月)
+									  <label class="btn btn-default <?php if(isset($list_array[$ca['key_year']])){ echo (in_array('01', $list_array[$ca['key_year']]))?'active':'';} ?>">
+									    <input type="checkbox" autocomplete="off" name="list[{{ $ca['key_year'] }}][]" value="01" <?php if(isset($list_array[$ca['key_year']])){ echo (in_array('01', $list_array[$ca['key_year']]))?'checked="checked"':'';} ?>>冬(1月)
 									  </label>
 
 									</div>

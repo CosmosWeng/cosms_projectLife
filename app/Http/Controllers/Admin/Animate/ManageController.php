@@ -42,18 +42,24 @@ class ManageController extends Controller
             }
       }
 
-      $category = Animate_list::select('key_year')->distinct()->get();
+      $category = Animate_list::select('key_year')->distinct()->get()->toArray();
        $str ='';
+       $count = 0;
        foreach ($list_array  as $key => $value) {
-         $str .= ' key_year ="'.$key.'" and ('; 
+        if ($count==0) {
+          $str .= ' key_year ="'.$key.'" and ('; 
+        }else{
+          $str .= ' or key_year ="'.$key.'" and ('; 
+        }
          foreach ($value as $key => $mon) {
           if ($key ==0) {
-            $str .= 'key_mon ="'.$mon.'"';
+            $str .= ' key_mon ="'.$mon.'"';
           }else{
             $str .= ' or key_mon ="'.$mon.'"';
           }
          }
           $str .= ')'; 
+          $count++;
        }
        $data = array(
 //          'sort'            => $sort,
@@ -91,7 +97,12 @@ class ManageController extends Controller
       //$pagination->text = $this->language->get('text_pagination');
       $pagination->url = route('animate.index').$url ;//$this->url->link('catalog/product', 'token=' . $this->session->data['token'] . $url . '&page={page}', 'SSL');
       $paginations = $pagination->render();
-
+/*
+      foreach($category as $key => $ca){
+         var_dump($ca['key_year']);
+      }
+       var_dump($list_array);
+*/
         $data = compact('posts','category','list_array','paginations');
       	return View('admin.animate_manage.list',$data);
       }
