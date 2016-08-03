@@ -40,6 +40,7 @@ class AnimatelessionController extends Controller
    		$d=strtotime($date."01");
     	//var_dump(date("Y-m",$d));
       $year = date("Y",$d);
+      $mon = date("m",$d);
 
   //  		/**取得第一張表 僅有 名稱**/
   //   	$res=$html->find("table",0);

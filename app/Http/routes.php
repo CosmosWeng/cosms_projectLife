@@ -19,6 +19,10 @@ Route::post('contact',	['as' => 'contacts.store', 		'uses' => 'Information\Conta
 
 Route::get('animate_newlession', ['as' => 'animateNewLession.index',	'uses' => 'Animate\AnimatelessionController@index']);
 Route::get('animate/analysis', ['as' => 'animateNewLession.analysis',	'uses' => 'Animate\AnimatelessionController@analysis']);
+Route::get('animate_list', ['as' => 'animate.list',	'uses' => 'Animate\AnimateController@index']);
+Route::get('animate_list/getdata', ['as' => 'animate.getdata',	'uses' => 'Animate\AnimateController@getdata']);
+
+
 
 Route::get('article',	['as' => 'article.list',		'uses' => 'Admin\Post\PostsController@lists']);
 Route::get('article/{id}', ['as' => 'article.detail',	'uses' => 'Admin\Post\PostsController@show']);
@@ -66,7 +70,9 @@ Route::group(['middleware'=>'auth','namespace'=>'Admin','prefix' => 'admin'],fun
 	//ACG
 	Route::get('animate_list', 			['as' => 'animate.index',	'uses' => 'Animate\ManageController@index']);
 	Route::post('animate_list', 			['as' => 'animate.post',	'uses' => 'Animate\ManageController@index']);
-
+	Route::get('animate_list/{id}/edit', ['as' => 'animate.edit',	'uses' => 'Animate\ManageController@getform']);
+	Route::patch('animate_list/{id}'   , ['as' => 'animate.update',	'uses' => 'Animate\ManageController@update']);
+	Route::delete('animate_list/{id}',	['as' => 'animate.destroy',	'uses' => 'Animate\ManageController@destroy']);
 
 });
 

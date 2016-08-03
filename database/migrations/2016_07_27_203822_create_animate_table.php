@@ -15,9 +15,10 @@ class CreateAnimateTable extends Migration
         Schema::create('animate_list', function (Blueprint $table) {
             $table->increments('id');
             $table->string('key_year',8);
+            $table->string('key_mon',8);
             $table->string('name_tw');
             $table->string('name_jp');
-            $table->string('image');
+            $table->text('image');
             $table->text('description');
             $table->text('pt_list');
             $table->text('cv_list');

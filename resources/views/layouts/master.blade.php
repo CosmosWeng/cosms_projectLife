@@ -28,8 +28,11 @@
     <link href="{{ asset('javascript/font-awesome/css/font-awesome.min.css') }}" type="text/css" rel="stylesheet" />
     <link href="{{ asset('stylesheet/stylesheet.css') }}" rel="stylesheet" type="text/css" media="screen"  />
 
+    <link href="{{ asset('css/image.scrollUp.css') }}" rel="stylesheet" type="text/css">
+
     <script src="{{ asset('javascript/common.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/jquery.flexisel.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/jquery.scrollUp.js') }}" type="text/javascript"></script>
 
     <!-- Custom Fonts -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -68,3 +71,18 @@
     
 </body>
 </html>
+
+<script type="text/javascript">
+    $(function () {
+      $.scrollUp({
+        scrollName: 'scrollUp', // Element ID
+        topDistance: '300', // Distance from top before showing element (px)
+        topSpeed: 300, // Speed back to top (ms)
+        animation: 'fade', // Fade, slide, none
+        animationInSpeed: 200, // Animation in speed (ms)
+        animationOutSpeed: 200, // Animation out speed (ms)
+        scrollText: false, // Text for element
+        activeOverlay: false, // Set CSS color to display scrollUp active point, e.g '#00FFFF'
+      });
+    });
+</script>
